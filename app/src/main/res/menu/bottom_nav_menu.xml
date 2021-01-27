@@ -4,7 +4,7 @@
     <item
         android:id="@+id/navigation_chat"
         android:icon="@drawable/baseline_chat_bubble_outline_black_18dp"
-        android:title="@string/title_Chat" />
+        android:title="@string/title_Chat"/>
 
     <item
         android:id="@+id/navigation_profile"
