@@ -17,7 +17,6 @@ import kotlinx.android.synthetic.main.fragment_chat.*
 
 class ChatFragment : Fragment() {
 
-
     //Adapter, and greier for display av info om boligene. Håndtering av RecyclerView layouten
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: RecyclerView.Adapter<*>

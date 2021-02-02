@@ -17,10 +17,8 @@ class SplashActivity : AppCompatActivity() {
         //For å se hvordan aktiviteten er når det tar lang tid. Får tråder til å stoppe litt opp. Programmet sover i xx sekunder.
         Thread.sleep(2000)
 
-        //val sharedPref = getSharedPreferences("shared_prefs", Context.MODE_PRIVATE)
-        val userLoggedIn = false   //TODO: Senere endre slik at den faktisk sjekker om bruker er logget in eller ikke.
-
-        Timer("SplashTest",false).schedule(5000){
+        val sharedPref = getSharedPreferences("shared_prefs", Context.MODE_PRIVATE)
+        val userLoggedIn = sharedPref.getBoolean(LoginActivity.LOGGED_IN_KEY,false)   //TODO: Senere endre slik at den faktisk sjekker om bruker er logget in eller ikke.
 
             //Intent - tar brukeren med til neste aktivitet/fragment utifra om de er logget inn eller ikke.
             //overfør brukeren videre fra LoginActivity til chatfragment(MainActivity)
@@ -34,8 +32,8 @@ class SplashActivity : AppCompatActivity() {
 
             startActivity(activityIntent) //viderefører brukeren
         }
-    }
+
+}//END
 
 
 
-}

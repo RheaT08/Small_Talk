@@ -8,6 +8,11 @@ import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
 
+
+    companion object{                                   //midlertidig log in og log out state
+        const val LOGGED_IN_KEY = "USER_IS_LOGGED_IN"  //logget in en gang i appen, vil den her være lagret. neste gang appen kjører går den direkte inne.
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -17,8 +22,8 @@ class LoginActivity : AppCompatActivity() {
         //LOG IN button --> Main Activity
         login_btn.setOnClickListener{
 
-           // val sharedPref = getSharedPreferences("shared_prefs", Context.MODE_PRIVATE)
-            //sharedPref?.edit()?.putBoolean(LoginActivity.LOGGED_IN_KEY, true)?.apply()
+            val sharedPref = getSharedPreferences("shared_prefs", Context.MODE_PRIVATE)
+            sharedPref?.edit()?.putBoolean(LoginActivity.LOGGED_IN_KEY,true)?.apply()
 
             //if brukernavn input, og passord er riktig. La bruker logge in?
             if(2+2 == 4){
