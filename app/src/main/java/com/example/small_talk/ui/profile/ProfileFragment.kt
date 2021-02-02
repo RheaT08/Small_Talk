@@ -42,8 +42,9 @@ class ProfileFragment : Fragment() {
                 sharedPref?.edit()?.putBoolean(LoginActivity.LOGGED_IN_KEY,false)?.apply()  //putBoolean med false, lagres det at vi ikke er logget inn lenger.
 
                 //Tilbake til login siden.
-                val backToLogin = Intent(activity,LoginActivity::class.java)  //hvorfor spesifisere "activity" og ikke this, eller ingenting?
-                startActivity(backToLogin)
+                val intent = Intent(activity,LoginActivity::class.java)  //hvorfor spesifisere "activity" og ikke this, eller ingenting?
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NO_HISTORY
+                startActivity(intent)
             }
         })
 

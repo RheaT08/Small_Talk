@@ -4,8 +4,10 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_login.*
 
+//bedre å spesifisere alle viewsene med private lateinit eller bruke viewsene direkte?
 class LoginActivity : AppCompatActivity() {
 
 
@@ -19,15 +21,18 @@ class LoginActivity : AppCompatActivity() {
 
         //TODO: Implementere logg in og ut med dummy data.
 
-        //LOG IN button --> Main Activity
+        //LOG IN button --> Main Activity (CHAT_FRAGMENT)
         login_btn.setOnClickListener{
 
-            val sharedPref = getSharedPreferences("shared_prefs", Context.MODE_PRIVATE)
-            sharedPref?.edit()?.putBoolean(LoginActivity.LOGGED_IN_KEY,true)?.apply()
+            var username = edit_username.text.toString().toLowerCase()
+            var password = edit_password.text.toString().toLowerCase()
 
-            //if brukernavn input, og passord er riktig. La bruker logge in?
-            if(2+2 == 4){
-                login()
+            //Midlertidig. her burde man sjekke om brukernavn, og passord gjennom å kalle på API. Akkurat nå setter jeg et valgt passord
+            if(username == "rhea" && password == "marie"){
+                logIN()
+            }
+            else{
+                Toast.makeText(this, "Wrong Password or Username",Toast.LENGTH_SHORT).show()
             }
 
         }
@@ -37,7 +42,11 @@ class LoginActivity : AppCompatActivity() {
 
     //Login -> MainActivity (w/ Navbar)
     //Flag, kan ikke gå tilbake til login, etterpå ved "back".
-    private fun login(){
+    private fun logIN(){
+
+        //lagrer status, at du er inne. Slipper å komme i login side frem til du fysisk logger ut.
+        val sharedPref = getSharedPreferences("shared_prefs", Context.MODE_PRIVATE)
+        sharedPref?.edit()?.putBoolean(LoginActivity.LOGGED_IN_KEY,true)?.apply()
 
         val intent = Intent(this,MainActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK   //flag, sletter forrige activitet. Sletter login etter man har logget in.
