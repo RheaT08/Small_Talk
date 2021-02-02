@@ -1,5 +1,6 @@
 package com.example.small_talk
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,8 +12,13 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        //TODO: Implementere logg in og ut med dummy data.
+
         //LOG IN button --> Main Activity
         login_btn.setOnClickListener{
+
+           // val sharedPref = getSharedPreferences("shared_prefs", Context.MODE_PRIVATE)
+            //sharedPref?.edit()?.putBoolean(LoginActivity.LOGGED_IN_KEY, true)?.apply()
 
             //if brukernavn input, og passord er riktig. La bruker logge in?
             if(2+2 == 4){

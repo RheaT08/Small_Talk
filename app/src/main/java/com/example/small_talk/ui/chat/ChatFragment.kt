@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.small_talk.R
 import kotlinx.android.synthetic.main.fragment_chat.*
 
+//TODO: Implementer UI på recyclerview. Lag cardviews etc...
+
 class ChatFragment : Fragment() {
 
 

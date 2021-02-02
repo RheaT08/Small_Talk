@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.small_talk">
 
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,17 +10,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Small_Talk">
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/title_activity_main"></activity>
-        <activity android:name=".LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+        <!--SPLASH SCREEN-->
+        <activity
+            android:name=".SplashActivity"
+            android:label="Small_Talk"
+            android:noHistory="true">                                          <!-- forhindrer splash screen å vise igjen ved å trykke på "back" -->
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER"/>    <!-- Aktiviteten som først vises ved oppstart av appen-->
+                <action android:name="android.intent.action.MAIN"/>            <!--Entry point. Første aktivitet opprettet ved oppstart av appen-->
             </intent-filter>
         </activity>
+
+        <!-- MAIN ACTIVITY-->
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main" />
+
+        <!-- LOGIN ACTIVITY-->
+        <activity
+            android:name=".LoginActivity"
+            android:label="LoginActivity"/>
+
         <activity android:name=".FragmentsActivity" />
+
     </application>
 
 </manifest>
