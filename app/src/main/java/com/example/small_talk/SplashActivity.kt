@@ -25,12 +25,11 @@ class SplashActivity : AppCompatActivity() {
         val userLoggedIn = sharedPref.getBoolean(LoginActivity.LOGGED_IN_KEY,false)   //TODO: Senere endre slik at den faktisk sjekker om bruker er logget in eller ikke.
 
 
-
-        // This is used to hide the status bar and make
-        // the splash screen as a full screen activity.
+        //Setter selve splashscreenen i fullskjerm, uten noe titlebar oppe.
+        //TODO: Fikse deprecation problemet senere.
         window.setFlags(
-                WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,    // This is used to hide the status bar and make
+            WindowManager.LayoutParams.FLAG_FULLSCREEN     // the splash screen as a full screen activity.
         )
 
 
@@ -49,7 +48,7 @@ class SplashActivity : AppCompatActivity() {
             startActivity(activityIntent) //viderefører brukeren
             finish()
 
-        }, 5000)   //3 seconds on splashscreen
+        }, 2000)   //2 seconds on splashscreen
 
         }//onCreate
 }//END
