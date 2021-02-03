@@ -15,6 +15,7 @@
         <activity
             android:name=".SplashActivity"
             android:label="Small_Talk"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:noHistory="true">                                          <!-- forhindrer splash screen å vise igjen ved å trykke på "back" -->
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER"/>    <!-- Aktiviteten som først vises ved oppstart av appen-->
@@ -30,9 +31,7 @@
         <!-- LOGIN ACTIVITY-->
         <activity
             android:name=".LoginActivity"
-            android:label="LoginActivity"/>
-
-        <activity android:name=".FragmentsActivity" />
+            android:label="Login"/>
 
     </application>
 
